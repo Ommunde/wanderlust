@@ -1,0 +1,344 @@
+/* ================ */
+/* VARIABLES */
+/* ================ */
+:root {
+    --primary-color: #FF385C;
+    --text-color: #222222;
+    --light-text: #717171;
+    --border-color: #DDDDDD;
+    --background-light: #FFFFFF;
+    --background-gray: #F7F7F7;
+  }
+  
+  /* ================ */
+  /* BASE STYLES */
+  /* ================ */
+  .hover-effect {
+    transition: all 0.2s ease;
+    cursor: pointer;
+  }
+  
+  /* ================ */
+  /* SEARCH SECTION */
+  /* ================ */
+  .search-section {
+    margin-bottom: 24px;
+  }
+  
+  .search-bar {
+    display: flex;
+    align-items: center;
+    background: var(--background-light);
+    border: 1px solid var(--border-color);
+    border-radius: 40px;
+    padding: 8px;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.08), 0 4px 12px rgba(0,0,0,0.05);
+    margin: 0 auto;
+    max-width: fit-content;
+  }
+  
+  .search-item {
+    padding: 0 16px;
+    cursor: pointer;
+  }
+  
+  .search-label {
+    font-size: 12px;
+    font-weight: 600;
+    margin-bottom: 4px;
+  }
+  
+  .search-input {
+    border: none;
+    outline: none;
+    font-size: 14px;
+    width: 100%;
+    background: transparent;
+  }
+  
+  .vertical-divider {
+    height: 24px;
+    width: 1px;
+    background-color: var(--border-color);
+  }
+  
+  .search-button {
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+  }
+  
+  /* Search Hover Effects */
+  .search-item.hover-effect:hover {
+    background-color: var(--background-gray);
+    border-radius: 30px;
+    padding: 8px 16px;
+    margin: -8px -16px;
+  }
+  
+  .search-button.hover-effect:hover {
+    transform: scale(1.05);
+  }
+  
+  .search-icon {
+    transition: transform 0.2s;
+  }
+  
+  .search-button.hover-effect:hover .search-icon {
+    transform: scale(1.1);
+  }
+  
+  /* ================ */
+  /* FILTER SECTION */
+  /* ================ */
+  .filter-section {
+    margin-bottom: 24px;
+  }
+  
+  .filter-scroll-container {
+    width: 100%;
+    overflow: hidden;
+  }
+  
+  .filter-scroll {
+    display: flex;
+    gap: 16px;
+    overflow-x: auto;
+    padding-bottom: 16px;
+    scrollbar-width: none;
+    max-width: fit-content;
+    margin: 0 auto;
+  }
+  
+  .filter-scroll::-webkit-scrollbar {
+    display: none;
+  }
+  
+  .filter-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 16px;
+    cursor: pointer;
+    border-bottom: 2px solid transparent;
+    transition: all 0.2s;
+    min-width: 70px;
+  }
+  
+  .filter-item.active {
+    border-bottom-color: var(--text-color);
+  }
+  
+  .filter-actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 24px;
+    margin-top: 16px;
+  }
+  
+  .price-info {
+    font-size: 14px;
+    color: var(--light-text);
+    order: 1;
+  }
+  
+  .filter-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 16px;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    background: white;
+    cursor: pointer;
+    order: 2;
+  }
+  
+  /* Filter Hover Effects */
+  .filter-icon {
+    transition: all 0.2s;
+    font-size: 20px;
+  }
+  
+  .filter-item.hover-effect:hover .filter-icon {
+    color: var(--primary-color);
+    transform: scale(1.1);
+  }
+  
+  .filter-item.hover-effect:hover {
+    background-color: var(--background-gray);
+    border-radius: 12px;
+  }
+  
+  .filter-item span {
+    font-size: 12px;
+    white-space: nowrap;
+  }
+  
+  .filter-action-icon {
+    transition: transform 0.2s;
+  }
+  
+  .filter-btn.hover-effect:hover .filter-action-icon {
+    transform: rotate(15deg);
+  }
+  
+  /* ================ */
+  /* LISTINGS GRID */
+  /* ================ */
+  .listings-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 24px;
+    margin-bottom: 40px;
+  }
+  
+  .listing-card {
+    background: var(--background-light);
+    border-radius: 12px;
+    overflow: hidden;
+    transition: transform 0.2s;
+  }
+  
+  .listing-card:hover {
+    transform: translateY(-4px);
+  }
+  
+  .listing-link {
+    text-decoration: none;
+    color: inherit;
+  }
+  
+  .listing-image {
+    height: 300px;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+  }
+  
+  .listing-details {
+    padding: 16px;
+  }
+  
+  .listing-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 8px;
+  }
+  
+  .listing-title {
+    font-size: 16px;
+    font-weight: 600;
+    margin: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  
+  .listing-rating {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 14px;
+  }
+  
+  .listing-location, .listing-dates {
+    font-size: 14px;
+    color: var(--light-text);
+    margin-bottom: 8px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  
+  .listing-price {
+    font-weight: 600;
+    margin-top: 8px;
+  }
+  
+  .listing-price span {
+    font-weight: normal;
+    color: var(--light-text);
+  }
+  
+  /* Listing Hover Effects */
+  .wishlist-btn {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    background: rgba(255, 255, 255, 0.9);
+    border: none;
+    border-radius: 50%;
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+  }
+  
+  .wishlist-icon {
+    transition: all 0.2s;
+  }
+  
+  .wishlist-btn.hover-effect:hover .wishlist-icon {
+    color: var(--primary-color);
+    transform: scale(1.2);
+  }
+  
+  .rating-icon {
+    color: var(--primary-color);
+    transition: transform 0.2s;
+  }
+  
+  .listing-rating.hover-effect:hover .rating-icon {
+    transform: scale(1.2);
+  }
+  
+  .listing-rating.hover-effect:hover {
+    color: var(--primary-color);
+  }
+  
+  /* ================ */
+  /* RESPONSIVE ADJUSTMENTS */
+  /* ================ */
+  @media (max-width: 768px) {
+    .search-bar {
+      flex-direction: column;
+      border-radius: 12px;
+      padding: 16px;
+    }
+    
+    .search-item {
+      width: 100%;
+      padding: 8px 0;
+    }
+    
+    .vertical-divider {
+      display: none;
+    }
+    
+    .search-button {
+      width: 100%;
+      border-radius: 8px;
+      margin-top: 8px;
+    }
+    
+    .listings-grid {
+      grid-template-columns: 1fr;
+    }
+  
+    .filter-scroll {
+      max-width: 100%;
+      padding: 0 20px;
+    }
+  }

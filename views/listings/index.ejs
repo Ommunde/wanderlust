@@ -1,0 +1,106 @@
+<% layout("layouts/boilerplate") %>
+
+<div class="airbnb-container">
+  <!-- Search Bar Section -->
+  <div class="search-section">
+    <div class="search-bar">
+      <div class="search-item hover-effect">
+        <div class="search-label">Where</div>
+        <input type="text" placeholder="Search destinations" class="search-input">
+      </div>
+      <div class="vertical-divider"></div>
+      <div class="search-item hover-effect">
+        <div class="search-label">Check in</div>
+        <input type="text" placeholder="Add dates" class="search-input">
+      </div>
+      <div class="vertical-divider"></div>
+      <div class="search-item hover-effect">
+        <div class="search-label">Check out</div>
+        <input type="text" placeholder="Add dates" class="search-input">
+      </div>
+      <div class="vertical-divider"></div>
+      <div class="search-item hover-effect">
+        <div class="search-label">Who</div>
+        <input type="text" placeholder="Add guests" class="search-input">
+      </div>
+      <button class="search-button hover-effect">
+        <i class="fas fa-search search-icon"></i>
+      </button>
+    </div>
+  </div>
+
+  <!-- Filter Categories -->
+  <div class="filter-section">
+    <div class="filter-scroll">
+      <div class="filter-item active hover-effect">
+        <i class="fas fa-fire filter-icon"></i>
+        <span>Trending</span>
+      </div>
+      <div class="filter-item hover-effect">
+        <i class="fas fa-umbrella-beach filter-icon"></i>
+        <span>Beachfront</span>
+      </div>
+      <div class="filter-item hover-effect">
+        <i class="fas fa-tree filter-icon"></i>
+        <span>Cabins</span>
+      </div>
+      <div class="filter-item hover-effect">
+        <i class="fas fa-home filter-icon"></i>
+        <span>Mansions</span>
+      </div>
+      <div class="filter-item hover-effect">
+        <i class="fas fa-binoculars filter-icon"></i>
+        <span>Amazing views</span>
+      </div>
+      <div class="filter-item hover-effect">
+        <i class="fas fa-tractor filter-icon"></i>
+        <span>Farms</span>
+      </div>
+      <div class="filter-item hover-effect">
+        <i class="fas fa-water-ladder filter-icon"></i>
+        <span>Amazing pools</span>
+      </div>
+      <div class="filter-item hover-effect">
+        <i class="fas fa-water filter-icon"></i>
+        <span>Lake</span>
+      </div>
+      <div class="filter-item hover-effect">
+        <i class="fas fa-mountain filter-icon"></i>
+        <span>Top of the world</span>
+      </div>
+    </div>
+    <div class="filter-actions">
+      <div class="price-info">Prices include all fees</div>
+      <button class="filter-btn hover-effect">
+        <i class="fas fa-sliders filter-action-icon"></i>
+        <span>Filters</span>
+      </button>
+    </div>
+  </div>
+
+  <!-- Listings Grid -->
+  <div class="listings-grid">
+    <% for(let listing of allListings) { %>
+      <div class="listing-card">
+        <a href="/listings/<%= listing._id %>" class="listing-link">
+          <div class="listing-image" style="background-image: url('<%= listing.image.url %>')">
+            <button class="wishlist-btn hover-effect">
+              <i class="far fa-heart wishlist-icon"></i>
+            </button>
+          </div>
+          <div class="listing-details">
+            <div class="listing-header">
+              <h3 class="listing-title"><%= listing.title %></h3>
+              <div class="listing-rating">
+                <i class="fas fa-star rating-icon"></i>
+                <span><%= listing.rating || '4.8' %></span>
+              </div>
+            </div>
+            <div class="listing-location"><%= listing.location %></div>
+            <div class="listing-price">₹<%= listing.price.toLocaleString("en-IN") %> <span>night</span></div>
+          </div>
+        </a>
+      </div>
+    <% } %>
+  </div>
+</div>

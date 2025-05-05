@@ -1,0 +1,37 @@
+<nav class="navbar navbar-expand-md navbar-light bg-white border-bottom sticky-top py-2">
+  <div class="container">
+    <a class="navbar-brand hover-effect" href="/listings">
+      <i class="fa-solid fa-compass me-2 navbar-icon" style="color: var(--primary-color); font-size: 1.5rem;"></i>
+      <span class="fw-bold" style="color: var(--primary-color);">WanderLust</span>
+    </a>
+    <button class="navbar-toggler hover-effect" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="navbar-nav me-auto">
+        <a class="nav-item nav-link active fw-semibold hover-effect" href="/listings">Explore</a>
+      </div>
+
+      <div class="navbar-nav ms-auto align-items-center">
+        <a class="nav-item nav-link me-3 hover-effect" href="/listings/new">Airbnb your home</a>
+        <% if (!currentUser) { %>
+          <a class="nav-item nav-link btn btn-outline-dark rounded-pill px-3 me-2 hover-effect" href="/login">Login</a>
+          <a class="nav-item nav-link btn btn-dark rounded-pill px-3 hover-effect" href="/signup">Sign up</a>
+        <% } else { %>
+          <div class="dropdown">
+            <button class="btn btn-light rounded-pill border px-3 d-flex align-items-center hover-effect" type="button" id="userDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+              <i class="fa-solid fa-bars me-2 navbar-icon"></i>
+              <i class="fa-solid fa-circle-user fs-5 navbar-icon"></i>
+            </button>
+            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown">
+              <li><span class="dropdown-item-text">Hello, <%= currentUser.username %>!</span></li>
+              <li><hr class="dropdown-divider"></li>
+              <li><a class="dropdown-item hover-effect" href="/logout">Logout</a></li>
+            </ul>
+          </div>
+        <% } %>
+      </div>
+    </div>
+  </div>
+</nav>

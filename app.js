@@ -4,21 +4,22 @@ if(process.env.NODE_ENV != "production"){
 
 const express = require("express");
 const app = express();
-const mongoose = require("mongoose");
+const mongoose = require("mongoose");               // connect node with mondodb and defines schema
 const path = require("path");
-const methodOverride = require("method-override");
-const ejsMate = require("ejs-mate");
-const session = require("express-session");
-const MongoStore = require('connect-mongo');
-const flash = require("connect-flash");
-const passport = require("passport");
-const LocalStrategy = require("passport-local");
+const methodOverride = require("method-override");  // helps html form to use put, patch, delete methods
+const ejsMate = require("ejs-mate");                // layout/ templating
+const session = require("express-session");         // Stores users session data
+const MongoStore = require('connect-mongo');        // stores session data in mongodb
+const flash = require("connect-flash");             // pop ups 
+const passport = require("passport");               // authentication
+const LocalStrategy = require("passport-local");    // usename and password check krta hai database se
 const User = require("./models/user.js");
 
 const listingRouter = require("./routes/listing.js");
 const reviewRouter = require("./routes/review.js");
 const userRouter = require("./routes/user.js");
 
+// const MONGO_URL = "mongodb://127.0.0.1:27017/wanderlust";
 const dbUrl = process.env.ATLASDB_URL;
 
 main()

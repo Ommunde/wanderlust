@@ -18,6 +18,8 @@ const User = require("./models/user.js");
 const listingRouter = require("./routes/listing.js");
 const reviewRouter = require("./routes/review.js");
 const userRouter = require("./routes/user.js");
+const bookingRouter = require("./routes/booking.js");
+const userBookingsRouter = require("./routes/userBookings.js");
 
 // const MONGO_URL = "mongodb://127.0.0.1:27017/wanderlust";
 const dbUrl = process.env.ATLASDB_URL;
@@ -71,7 +73,7 @@ app.get("/", (req, res) => {
 
 app.use(session(sessionOptions));
 app.use(flash());
-passport.use(new LocalStrategy(s=User.authenticate()));
+passport.use(new LocalStrategy(User.authenticate()));
 
 app.use(passport.initialize());
 app.use(passport.session());
@@ -88,6 +90,8 @@ app.use((req,res,next) => {
 
 app.use("/listings", listingRouter);
 app.use("/listings/:id/reviews", reviewRouter);
+app.use("/listings/:id/bookings", bookingRouter);
+app.use("/bookings", userBookingsRouter);
 app.use("/", userRouter);
 
 app.listen(8080, () => {
